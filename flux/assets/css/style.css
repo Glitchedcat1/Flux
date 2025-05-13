@@ -44,7 +44,7 @@ body {
 
 .input:hover, .input:focus {
    border-color: black;
-   box-shadow: 0 0 10px black;
+   box-shadow: 0 0 10px grey;
 }
 
 /* Search Icon */

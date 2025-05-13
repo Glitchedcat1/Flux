@@ -18,7 +18,7 @@ function openCloaker() {
         win.document.title = '\u200B'; // zero-width space
         var link = win.document.createElement('link');
         link.rel = 'icon';
-        link.href = '/assets/img/blank.ico';
+        link.href = '/flux/assets/img/blank.ico';
         win.document.head.appendChild(link);
 
         window.location.replace("https://www.britannica.com/");

@@ -1,11 +1,12 @@
 /* General styling */
 body {
-   background-color: #121212;
+   background: linear-gradient(to bottom, #000000, #4d4d4d); /* black to dark grey */
    color: #e0e0e0;
    font-family: 'Exo', sans-serif;
    margin: 0;
    padding: 0;
 }
+
 
 #content {
    height: auto;
@@ -42,7 +43,7 @@ body {
 }
 
 .input:hover, .input:focus {
-   border-color: white;
+   border-color: black;
    box-shadow: 0 0 10px white;
 }
 

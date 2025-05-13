@@ -2,7 +2,7 @@
 body {
    background: linear-gradient(to bottom, #000000, #4d4d4d); /* black to dark grey */
    color: #e0e0e0;
-   font-family: 'Exo', sans-serif;
+   font-family: "Share Tech Mono", monospace;
    margin: 0;
    padding: 0;
 }
@@ -17,7 +17,7 @@ body {
    align-items: center;
    gap: 20px;
    text-align: center;
-   font-family: 'Exo', sans-serif;
+   font-family: "Share Tech Mono", monospace;
 }
 
 
@@ -39,7 +39,7 @@ body {
    border-radius: 25px;
    transition: all 0.3s ease;
    outline: none;
-   font-family: 'Exo', sans-serif;
+   font-family: "Share Tech Mono", monospace;
 }
 
 .input:hover, .input:focus {

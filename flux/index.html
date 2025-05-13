@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Flux</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="icon" type="image/x-icon" href="assets/flux.png">
+      <link rel="manifest" href="/manifest.json">
+      <link href="style.css" rel="stylesheet">
+   </head>
+   <body>
+      <div id="content">
+        <img class="logo" src="assets/flux.png" alt="logo">
+         <h1>Flux</h1>
+        
+         <form id="uv-form">
+            <div class="input-container">
+               <i class="fas fa-search"></i>
+               <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/>
+               <input id="uv-address" class="input" name="text" type="text" placeholder="Search the web or type a url"/>
+            </div>
+         </form>
+         <div class="desc left-margin">
+            <p id="uv-error"></p>
+            <pre id="uv-error-code"></pre>
+         </div>
+      </div>
+      
+      
+      <script src="uv/uv.bundle.js" charset="UTF-8" defer></script>
+      <script src="uv/uv.config.js" charset="UTF-8" defer></script>
+      <script src="register-sw.js" charset="UTF-8" defer></script>
+      <script src="search.js" charset="UTF-8" defer></script>
+      <script src="index.js" charset="UTF-8" defer></script>
+      
+   </body>
+</html>

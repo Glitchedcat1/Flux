@@ -1,6 +1,6 @@
 var cacheName = 'LVcog';
 var filesToCache = [
-  '/js/sw.js'
+  'flux/js/sw.js'
 ];
 
 self.addEventListener('install', function(e) {

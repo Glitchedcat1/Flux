@@ -21,7 +21,7 @@ function openCloaker() {
         link.href = '/flux/assets/img/blank.ico';
         win.document.head.appendChild(link);
 
-        window.location.replace("https://www.britannica.com/");
+        window.location.replace("https://example.com");
       } catch (e) {
         alert("Please allow popups and redirects for this site for the about:blank to open. (reload after)");
       }

@@ -21,7 +21,7 @@ function openCloaker() {
         link.href = '/flux/assets/img/blank.ico';
         win.document.head.appendChild(link);
 
-        window.location.replace("https://example.com"); //changed to example, brittanica laggy
+        window.location.replace("https://www.khanacademy.org/"); //changed to example, brittanica laggy
       } catch (e) {
         alert("Please allow popups and redirects for this site for the about:blank to open. (reload after)");
       }

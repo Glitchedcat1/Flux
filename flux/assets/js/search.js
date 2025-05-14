@@ -6,27 +6,34 @@
  * @returns {string} Fully qualified URL
  */
 function search(input, template) {
-  try {
-    // input is a valid URL:
-    // eg: https://example.com, https://example.com/test?q=param
-    return new URL(input).toString();
-  } catch (err) {
-    // input was not a valid URL
-  }
+  let url;
 
   try {
-    // input is a valid URL when http:// is added to the start:
-    // eg: example.com, https://example.com/test?q=param
-    const url = new URL(`http://${input}`);
-    // only if the hostname has a TLD/subdomain
-    if (url.hostname.includes(".")) return url.toString();
-  } catch (err) {
-    // input was not valid URL
+    url = new URL(input).toString();
+  } catch {
+    try {
+      const temp = new URL(`http://${input}`);
+      if (temp.hostname.includes(".")) {
+        url = temp.toString();
+      }
+    } catch {}
   }
 
-  // input may have been a valid URL, however the hostname was invalid
+  if (!url) {
+    url = `https://www.bing.com/search?q=${encodeURIComponent(input)}`;
+  }
 
-  // Attempts to convert the input to a fully qualified URL have failed
-  // Treat the input as a search query
-  return `https://www.bing.com/search?q=${encodeURIComponent(input)}`; // switched to bing for testing, duckduckgo gave captchas
+  // Open the new page in a new window and inject Eruda
+  const win = window.open(url, "_blank");
+  if (win) {
+    // Inject Eruda after the page loads — only works if CORS allows or it's a blank page
+    win.onload = function () {
+      const script = win.document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/eruda";
+      script.onload = () => win.eruda.init();
+      win.document.body.appendChild(script);
+    };
+  }
+
+  return url;
 }

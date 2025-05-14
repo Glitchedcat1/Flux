@@ -75,11 +75,21 @@ font-family: "Share Tech Mono", monospace;
    
 }
 
-.fa-solid .fa-bars {
-   top: 100px;
-   left: 100px;
+.fa-solid.fa-bars {
+   position: fixed; /* so it stays in place and doesn't affect scroll */
+   top: 20px;
+   left: 20px;
    z-index: 1000;
+   font-size: 2rem; /* make it bigger */
+   color: #e0e0e0;
+   cursor: pointer;
+   transition: transform 0.2s ease;
 }
+
+.fa-solid.fa-bars:hover {
+   transform: scale(1.2); 
+}
+
 
 
 

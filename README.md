@@ -7,6 +7,7 @@
 5.then go into your uv.config.js at flux/uv/uv.config.js <br>
 6.then just change the line I have pointed out for you in there to the new worker you just made! <br>
 ### If you have questions, feel free to put them in the issues of this repo!<br>
+#### If this does not work, I will be making a second version of flux that uses wisp, which is better
 <hr>
 
 

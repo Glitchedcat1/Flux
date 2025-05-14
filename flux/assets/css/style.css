@@ -76,11 +76,9 @@ font-family: "Share Tech Mono", monospace;
 }
 
 .fa-solid .fa-bars {
-   position: absolute;
-   top: 100px !important; /*so many !important lol*/
+   top: 100px !important;
    left: 100px !important;
    z-index: 1000 !important;
-   cursor: pointer !important;
 }
 
 

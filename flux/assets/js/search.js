@@ -5,31 +5,40 @@
  * @param {string} template Template for a search query.
  * @returns {string} Fully qualified URL
  */
-function search(input, template) {
-  // Inject Eruda into THIS PAGE fix?
-  (function injectEruda() {
-    const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/npm/eruda";
-    script.onload = () => eruda.init();
-    document.body.appendChild(script);
-  })();
+let eruda = `fetch("https://cdn.jsdelivr.net/npm/eruda")
+.then((res) => res.text())
+.then((data) => {
+  eval(data);
+  if (!window.erudaLoaded) {
+    eruda.init({ defaults: { displaySize: 45, theme: "AMOLED" } });
+    window.erudaLoaded = true;
+  }
+});`;
 
-  let url;
+
+
+function search(input, template) {
+  try {
+    // input is a valid URL:
+    // eg: https://example.com, https://example.com/test?q=param
+    return new URL(input).toString();
+  } catch (err) {
+    // input was not a valid URL
+  }
 
   try {
-    url = new URL(input).toString();
-  } catch {
-    try {
-      const temp = new URL(`http://${input}`);
-      if (temp.hostname.includes(".")) {
-        url = temp.toString();
-      }
-    } catch {}
+    // input is a valid URL when http:// is added to the start:
+    // eg: example.com, https://example.com/test?q=param
+    const url = new URL(`http://${input}`);
+    // only if the hostname has a TLD/subdomain
+    if (url.hostname.includes(".")) return url.toString();
+  } catch (err) {
+    // input was not valid URL
   }
 
-  if (!url) {
-    url = `https://www.bing.com/search?q=${encodeURIComponent(input)}`;
-  }
+  // input may have been a valid URL, however the hostname was invalid
 
-  return url;
+  // Attempts to convert the input to a fully qualified URL have failed
+  // Treat the input as a search query
+  return `https://www.bing.com/?q=${encodeURIComponent(input)}`;
 }

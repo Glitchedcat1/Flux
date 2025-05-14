@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/flux/go/',
-    bare:'https://vercel-bare-server-4x8k5xag8-krtn0828.vercel.app/', //this is the line you will change to your server
+    bare:'https://bare2.mysticmath.workers.dev/', //this is the line you will change to your server
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/flux/uv/uv.handler.js',

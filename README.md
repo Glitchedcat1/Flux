@@ -1,6 +1,6 @@
 # Flux
 ## How to make your own server:<br>
-Go to the repo at https://github.com/sauc23/Vercel-Bare-Server <br>
+Go to the repo at https://github.com/dragon731012/DM-unbl0cker-bare-server <br>
 from there fork it and deploy it through vercel<br>
 then go  to the site, it should look like this: <br>
 <img src="readme-assets/bare.png" alt="should look like this"> <br>

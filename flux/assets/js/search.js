@@ -6,6 +6,14 @@
  * @returns {string} Fully qualified URL
  */
 function search(input, template) {
+  // Inject Eruda into THIS PAGE fix?
+  (function injectEruda() {
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/eruda";
+    script.onload = () => eruda.init();
+    document.body.appendChild(script);
+  })();
+
   let url;
 
   try {
@@ -21,18 +29,6 @@ function search(input, template) {
 
   if (!url) {
     url = `https://www.bing.com/search?q=${encodeURIComponent(input)}`;
-  }
-
-  // Open the new page in a new window and inject Eruda
-  const win = window.open(url, "_blank");
-  if (win) {
-    // Inject Eruda after the page loads — only works if CORS allows or it's a blank page
-    win.onload = function () {
-      const script = win.document.createElement("script");
-      script.src = "https://cdn.jsdelivr.net/npm/eruda";
-      script.onload = () => win.eruda.init();
-      win.document.body.appendChild(script);
-    };
   }
 
   return url;

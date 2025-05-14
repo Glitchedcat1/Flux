@@ -1,11 +1,13 @@
 # Flux
 ## How to make your own server:<br>
-1.go to the https://github.com/tomphttp/bare-server-node repo and fork it<br>
-2.then go to cloudflare at https://www.cloudflare.com/ and make a new account <br>
-3.then make a new application then import and paste the repo URL or link your github account and select it. <br>
-4.then you make the worker, and go to this repo and fork flux. <br>
-5.then go into your uv.config.js at flux/uv/uv.config.js <br>
-6.then just change the line I have pointed out for you in there to the new worker you just made! <br>
+Go to the repo at https://github.com/sauc23/Vercel-Bare-Server <br>
+from there fork it and deploy it <br>
+then go  to the site, it should look like this: <br>
+<img src="readme-assets/bare.png" alt="should look like this"> <br>
+then go into the flux/uv/uv.config.js of your fork of flux (yea if you want your own flux link you will have to fork it)<br>
+and change the line i have pointed out in there to your new bare server URL<br>
+
+
 ### If you have questions, feel free to put them in the issues of this repo!<br>
 #### If this does not work, I will be making a second version of flux that uses wisp, which is better
 <hr>

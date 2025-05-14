@@ -28,5 +28,5 @@ function search(input, template) {
 
   // Attempts to convert the input to a fully qualified URL have failed
   // Treat the input as a search query
-  return `https://duckduckgo.com/?q=${encodeURIComponent(input)}`;
+  return `https://www.bing.com/search?q=${encodeURIComponent(input)}`; // switched to bing for testing, duckduckgo gave captchas
 }

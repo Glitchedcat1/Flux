@@ -3,7 +3,7 @@
 Go to the repo at https://github.com/dragon731012/DM-unbl0cker-bare-server <br>
 from there fork it and deploy it through vercel<br>
 then go  to the site, it should look like this: <br>
-<img src="readme-assets/bare.png" alt="should look like this"> <br>
+<img src="readme-assets/Screenshot 2025-05-14 5.05.04 PM.png" alt="should look like this"> <br>
 then go into the flux/uv/uv.config.js of your fork of flux (yea if you want your own flux link you will have to fork it)<br>
 and change the line i have pointed out in there to your new bare server URL<br>
 

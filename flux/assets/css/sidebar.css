@@ -28,7 +28,7 @@
     #sidebar a {
       color: white;
       text-decoration: none;
-      display: absolute;
+      display: block;
       margin-top: 20px;
       transition: transform 0.2s ease;
     }

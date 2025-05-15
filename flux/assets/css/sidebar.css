@@ -30,6 +30,7 @@
       text-decoration: none;
       display: block;
       margin-top: 20px;
+      transition: transform 0.2s ease;
     }
 
  #sidebar a:hover {

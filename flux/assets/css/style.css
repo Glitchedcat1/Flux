@@ -18,6 +18,7 @@ body {
    gap: 20px;
    text-align: center;
    font-family: "Share Tech Mono", monospace;
+   transition: filter 0.3s ease;
 }
 
 

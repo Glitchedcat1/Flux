@@ -55,16 +55,5 @@
       font-size: 30px;
     }
 
-#sidebar ol {
-      color: white;
-      text-decoration: none;
-      display: block;
-      margin-top: 20px;
-      transition: transform 0.2s ease;
-    }
 
-
- #sidebar ol:hover {
-      transform: scale(1.1);
-    }
 

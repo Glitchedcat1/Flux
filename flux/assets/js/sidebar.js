@@ -12,3 +12,18 @@ const menuToggle = document.getElementById('menuToggle');
       sidebar.classList.remove('open');
       content.classList.remove('blurred');
     });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const linksList = document.getElementById('linkList');
+  if (!linksList) return;
+
+  const links = JSON.parse(localStorage.getItem('quickLinks') || '[]');
+
+  linksList.innerHTML = '';
+
+  links.forEach(link => {
+    const li = document.createElement('li');
+    li.innerHTML = `<a href="${link.url}" target="_blank">${link.name}</a>`;
+    linksList.appendChild(li);
+  });
+});

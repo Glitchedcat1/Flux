@@ -76,6 +76,8 @@
   padding: 0;
   line-height: 1;
   margin: 0;
+  vertical-align: middle;
+  transform: translateY(-1px); /* adjust if needed */
 }
 
 #linkList li button.remove-link:hover {

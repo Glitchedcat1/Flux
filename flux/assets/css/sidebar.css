@@ -56,32 +56,32 @@
     }
 
 #linkList li {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 4px;
+  gap: 6px;
+  margin-bottom: 6px;
 }
 
 #linkList li a {
-  flex-grow: 1;
   text-decoration: none;
-  color: #00f; /* or your preferred link color */
+  color: white; 
 }
 
-#linkList button.remove-link {
+#linkList li button.remove-link {
   background: none;
   border: none;
   color: red;
   cursor: pointer;
   font-size: 14px;
-  padding: 0 4px;
+  padding: 0;
   line-height: 1;
+  margin: 0;
 }
 
-#linkList button.remove-link:hover {
+#linkList li button.remove-link:hover {
   color: darkred;
 }
+
 
 
 

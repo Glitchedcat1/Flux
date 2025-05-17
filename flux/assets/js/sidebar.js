@@ -23,23 +23,59 @@ document.addEventListener('DOMContentLoaded', function () {
     linksList.innerHTML = '';
 
     links.forEach((link, index) => {
-      const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(link.url);
-
       const li = document.createElement('li');
-      li.innerHTML = `
-        <a href="${encodedUrl}" target="_blank">${link.name}</a>
-        <button class="remove-link" data-index="${index}" title="Remove">x</button>
-      `;
-      linksList.appendChild(li);
-    });
 
-    document.querySelectorAll('.remove-link').forEach(button => {
-      button.addEventListener('click', function () {
-        const index = this.getAttribute('data-index');
+      // Create clickable <a> with no href (we’ll handle click manually)
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = link.name;
+      a.style.cursor = 'pointer';
+
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(link.url);
+
+        // Open about:blank and inject the UV iframe
+        const win = window.open('about:blank', '_blank');
+        if (!win) {
+          alert("Please allow popups for this site.");
+          return;
+        }
+
+        const iframe = win.document.createElement('iframe');
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.border = "none";
+        iframe.src = encodedUrl;
+
+        win.document.body.style.margin = "0";
+        win.document.body.style.height = "100vh";
+        win.document.body.appendChild(iframe);
+
+        win.document.title = '\u200B'; // zero-width space for stealth
+        const linkElem = win.document.createElement('link');
+        linkElem.rel = 'icon';
+        linkElem.href = '/flux/assets/img/blank.ico'; // your stealth favicon
+        win.document.head.appendChild(linkElem);
+      });
+
+      // Remove button
+      const removeBtn = document.createElement('button');
+      removeBtn.className = 'remove-link';
+      removeBtn.textContent = '❌';
+      removeBtn.title = 'Remove';
+      removeBtn.setAttribute('data-index', index);
+
+      removeBtn.addEventListener('click', function () {
         links.splice(index, 1);
         localStorage.setItem('quickLinks', JSON.stringify(links));
-        renderLinks(); // re-render list
+        renderLinks(); // refresh
       });
+
+      li.appendChild(a);
+      li.appendChild(removeBtn);
+      linksList.appendChild(li);
     });
   }
 

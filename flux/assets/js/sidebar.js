@@ -15,7 +15,7 @@ const menuToggle = document.getElementById('menuToggle');
 
 document.addEventListener('DOMContentLoaded', function () {
   const linksList = document.getElementById('linkList');
-  if (!linksList) return;
+  if (!linksList || typeof __uv$config === 'undefined') return;
 
   let links = JSON.parse(localStorage.getItem('quickLinks') || '[]');
 
@@ -23,17 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
     linksList.innerHTML = '';
 
     links.forEach((link, index) => {
+      const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(link.url);
+
       const li = document.createElement('li');
-
       li.innerHTML = `
-        <a href="${link.url}" target="_blank">${link.name}</a>
-        <button class="remove-link" data-index="${index}" title="Remove">X</button>
+        <a href="${encodedUrl}" target="_blank">${link.name}</a>
+        <button class="remove-link" data-index="${index}" title="Remove">x</button>
       `;
-
       linksList.appendChild(li);
     });
 
-    // Attach remove handlers
     document.querySelectorAll('.remove-link').forEach(button => {
       button.addEventListener('click', function () {
         const index = this.getAttribute('data-index');
@@ -46,4 +45,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   renderLinks();
 });
-

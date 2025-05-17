@@ -55,17 +55,34 @@
       font-size: 30px;
     }
 
+#linkList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+#linkList li a {
+  flex-grow: 1;
+  text-decoration: none;
+  color: #00f; /* or your preferred link color */
+}
+
 #linkList button.remove-link {
-  margin-left: 8px;
   background: none;
   border: none;
   color: red;
   cursor: pointer;
   font-size: 14px;
+  padding: 0 4px;
+  line-height: 1;
 }
+
 #linkList button.remove-link:hover {
   color: darkred;
 }
+
 
 
 

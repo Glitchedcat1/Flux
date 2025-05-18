@@ -1,17 +1,17 @@
 const menuToggle = document.getElementById('menuToggle');
-    const sidebar = document.getElementById('sidebar');
-    const closeBtn = document.getElementById('closeBtn');
-    const content = document.getElementById('content');
+const sidebar = document.getElementById('sidebar');
+const closeBtn = document.getElementById('closeBtn');
+const content = document.getElementById('content');
 
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.add('open');
-      content.classList.add('blurred');
-    });
+menuToggle.addEventListener('click', () => {
+  sidebar.classList.add('open');
+  content.classList.add('blurred');
+});
 
-    closeBtn.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      content.classList.remove('blurred');
-    });
+closeBtn.addEventListener('click', () => {
+  sidebar.classList.remove('open');
+  content.classList.remove('blurred');
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   const linksList = document.getElementById('linkList');
@@ -25,7 +25,13 @@ document.addEventListener('DOMContentLoaded', function () {
     links.forEach((link, index) => {
       const li = document.createElement('li');
 
-      // Create clickable <a> with no href (we’ll handle click manually)
+      // ✅ Create internal flex container for layout
+      const container = document.createElement('div');
+      container.style.display = 'flex';
+      container.style.alignItems = 'center';
+      container.style.gap = '6px';
+
+      // Create the <a>
       const a = document.createElement('a');
       a.href = '#';
       a.textContent = link.name;
@@ -35,8 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(link.url);
-
-        // Open about:blank and inject the UV iframe
         const win = window.open('about:blank', '_blank');
         if (!win) {
           alert("Please allow popups for this site.");
@@ -53,14 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
         win.document.body.style.height = "100vh";
         win.document.body.appendChild(iframe);
 
-        win.document.title = '\u200B'; // zero-width space for stealth
+        win.document.title = '\u200B';
         const linkElem = win.document.createElement('link');
         linkElem.rel = 'icon';
-        linkElem.href = '/flux/assets/img/blank.ico'; // your stealth favicon
+        linkElem.href = '/flux/assets/img/blank.ico';
         win.document.head.appendChild(linkElem);
       });
 
-      // Remove button
+      
       const removeBtn = document.createElement('button');
       removeBtn.className = 'remove-link';
       removeBtn.textContent = '❌';
@@ -70,11 +74,12 @@ document.addEventListener('DOMContentLoaded', function () {
       removeBtn.addEventListener('click', function () {
         links.splice(index, 1);
         localStorage.setItem('quickLinks', JSON.stringify(links));
-        renderLinks(); // refresh
+        renderLinks();
       });
 
-      li.appendChild(a);
-      li.appendChild(removeBtn);
+      container.appendChild(a);
+      container.appendChild(removeBtn);
+      li.appendChild(container);
       linksList.appendChild(li);
     });
   }

@@ -55,21 +55,31 @@
 }
 
 #linkList {
-  list-style: disc;
+  list-style-type: disc;
   padding-left: 20px;
+  margin: 0;
 }
 
 #linkList li {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  list-style: disc;
-  margin-bottom: 6px;
+  display: list-item; /* enables bullet */
+  list-style-position: outside;
+  margin: 4px 0;
+  color: white;
+  position: relative;
 }
 
+
+#linkList li a,
+#linkList li button.remove-link {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Space between link and X */
 #linkList li a {
-  text-decoration: none;
+  margin-right: 6px;
   color: white;
+  text-decoration: none;
 }
 
 #linkList li button.remove-link {
@@ -80,9 +90,7 @@
   font-size: 14px;
   padding: 0;
   line-height: 1;
-  margin: 0;
-  vertical-align: middle;
-  transform: translateY(-1px);
+  transform: translateY(1px); /* vertical alignment tweak */
 }
 
 #linkList li button.remove-link:hover {

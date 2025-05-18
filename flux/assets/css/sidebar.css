@@ -55,31 +55,36 @@
 }
 
 #linkList {
-  list-style-type: disc;
-  padding-left: 20px;
+  list-style: none;
+  padding-left: 0;
   margin: 0;
 }
 
 #linkList li {
-  display: list-item; /* enables bullet */
-  list-style-position: outside;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin: 4px 0;
   color: white;
   position: relative;
+  padding-left: 1em;
 }
 
-
-#linkList li a,
-#linkList li button.remove-link {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-/* Space between link and X */
-#linkList li a {
-  margin-right: 6px;
+#linkList li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
   color: white;
+  font-size: 18px;
+  line-height: 1;
+  top: 0;
+}
+
+#linkList li a {
   text-decoration: none;
+  color: white;
+  flex-shrink: 1;
+  white-space: nowrap;
 }
 
 #linkList li button.remove-link {
@@ -90,9 +95,10 @@
   font-size: 14px;
   padding: 0;
   line-height: 1;
-  transform: translateY(1px); /* vertical alignment tweak */
+  transform: translateY(1px);
 }
 
 #linkList li button.remove-link:hover {
   color: darkred;
 }
+

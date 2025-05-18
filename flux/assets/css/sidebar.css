@@ -55,35 +55,27 @@
 }
 
 #linkList {
-  list-style: none;
-  padding-left: 0;
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 20px;
   margin: 0;
 }
 
 #linkList li {
+  margin: 4px 0;
+}
+
+/* never used ts before lol */
+#linkList li > div {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin: 4px 0;
-  color: white;
-  position: relative;
-  padding-left: 1em;
-}
-
-#linkList li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: white;
-  font-size: 18px;
-  line-height: 1;
-  top: 0;
 }
 
 #linkList li a {
   text-decoration: none;
   color: white;
-  flex-shrink: 1;
+  font-size: 16px;
   white-space: nowrap;
 }
 
@@ -95,10 +87,11 @@
   font-size: 14px;
   padding: 0;
   line-height: 1;
-  transform: translateY(1px);
+  transform: translateY(1px); 
 }
 
 #linkList li button.remove-link:hover {
   color: darkred;
 }
+
 

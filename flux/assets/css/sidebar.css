@@ -1,70 +1,75 @@
 .blurred {
-      filter: blur(4px);
-    }
+  filter: blur(4px);
+}
 
-    /* Sidebar (initially off-screen) */
-    #sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 250px;
-      height: 100%;
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      transform: translateX(-100%);
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      z-index: 1000;
-      pointer-events: none;
-    }
+/* Sidebar (initially off-screen) */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+  pointer-events: none;
+}
 
-    #sidebar.open {
-      transform: translateX(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
+#sidebar.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
 
-    #sidebar a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      margin-top: 20px;
-      transition: transform 0.2s ease;
-    }
+#sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-top: 20px;
+  transition: transform 0.2s ease;
+}
 
- #sidebar a:hover {
-      transform: scale(1.1);
-    }
+#sidebar a:hover {
+  transform: scale(1.1);
+}
 
-
-    #closeBtn {
-      font-size: 24px;
-      cursor: pointer;
-      position: absolute;
-      top: 10px;
-      right: 15px;
-    }
+#closeBtn {
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
 
 #sidebar p {
-      color: white;
-      text-decoration: none;
-      display: block;
-      margin-top: 20px;
-      transition: transform 0.2s ease;
-      font-size: 30px;
-    }
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-top: 20px;
+  transition: transform 0.2s ease;
+  font-size: 30px;
+}
+
+#linkList {
+  list-style: disc;
+  padding-left: 20px;
+}
 
 #linkList li {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 6px;
+  list-style: disc;
   margin-bottom: 6px;
 }
 
 #linkList li a {
   text-decoration: none;
-  color: white; 
+  color: white;
 }
 
 #linkList li button.remove-link {
@@ -77,15 +82,9 @@
   line-height: 1;
   margin: 0;
   vertical-align: middle;
-  transform: translateY(-1px); /* adjust if needed */
+  transform: translateY(-1px);
 }
 
 #linkList li button.remove-link:hover {
   color: darkred;
 }
-
-
-
-
-
-

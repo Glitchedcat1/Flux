@@ -1,4 +1,4 @@
-.input {
+.linkinput {
    color: #fff;
    font-size: 1rem;
    background-color: rgba(255, 255, 255, 0.1);
@@ -11,17 +11,17 @@
    font-family: "Share Tech Mono", monospace;
 }
 
-.input:hover, .input:focus {
+.linkinput:hover, .linkinput:focus {
    border-color: black;
    box-shadow: 0 0 10px grey;
 }
 
-.input::placeholder {
+.linkinput::placeholder {
    color: #aaa;
    transition: all 0.3s ease;
 }
 
-.input:focus::placeholder {
+.linkinput:focus::placeholder {
    color: white;
    opacity: 0.6;
 }
